@@ -1,0 +1,1 @@
+echo "I from bash baba $1 $2 $3"

@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main()
+{
+    printf("Main pid %d \n", getpid());
+
+    pid_t p = fork();
+    // printf("running onece and twice \n");
+    if (p == 0)
+    {
+        // printf("Running before exec \n");
+
+        // execl("./search.bash", NULL);
+
+        // printf("Running after exec \n");
+        printf("first child");
+        pid_t p1 = fork();
+    }
+    else if (p != 0)
+    {
+        printf("first parent");
+
+        // wait(NULL);
+        // printf("hello from (parent) fork: %d \n", getppid());
+    }
+    else
+    {
+        printf("Error");
+    }
+
+    return 0;
+}

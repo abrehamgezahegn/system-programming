@@ -1,0 +1,1 @@
+find ~/files/movies -name "*.jpg"  > pictures.txt && cat pictures.txt 

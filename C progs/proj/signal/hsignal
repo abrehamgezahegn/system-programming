@@ -1,0 +1,37 @@
+Let’s look at a couple of simple examples. This first one registers a signal handler for
+SIGINT that simply prints a message and then terminates the program (as SIGINT would
+do anyway):
+#include
+#include
+#include
+#include
+<stdlib.h>
+<stdio.h>
+<unistd.h>
+<signal.h>
+/* handler for SIGINT */
+static void sigint_handler (int signo)
+{
+/*
+* Technically, you shouldn't use printf() in a
+* signal handler, but it isn't the end of the
+* world. I'll discuss why in the section
+* "Reentrancy."
+*/
+printf ("Caught SIGINT!\n");
+exit (EXIT_SUCCESS);
+}
+int main (void)
+{
+/*
+* Register sigint_handler as our signal handler
+* for SIGINT.
+*/
+if (signal (SIGINT, sigint_handler) == SIG_ERR) {
+fprintf (stderr, "Cannot handle SIGINT!\n");
+exit (EXIT_FAILURE);
+}
+for (;;)
+pause ();
+return 0;
+}

@@ -1,0 +1,5 @@
+some(){
+    echo "yeyaaa"
+}
+
+$some();

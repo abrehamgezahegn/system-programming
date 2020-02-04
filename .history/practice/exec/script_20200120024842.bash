@@ -1,0 +1,1 @@
+echo "I from bash baba"

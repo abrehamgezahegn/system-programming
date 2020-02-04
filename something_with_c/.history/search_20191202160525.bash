@@ -1,0 +1,1 @@
+find . -name "*.jpg" -ls > pictures.txt && cat pictures.txt 

@@ -1,0 +1,3 @@
+ways(){
+    echo "visionsss"    
+}
